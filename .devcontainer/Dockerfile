@@ -1,19 +1,19 @@
 FROM ubuntu@sha256:79efa276fdefa2ee3911db29b0608f8c0561c347ec3f4d4139980d43b168d991
 
 # Update the package database
-RUN apt clean
-RUN apt update
+RUN apt-get clean
+RUN apt-get update
 
 # Install common tools
-RUN apt install -y python3-minimal python3-pip pipx git less vim sudo cmake make g++-15 clang-format clangd-20
+RUN apt-get install -y python3-minimal python3-pip pipx git less vim sudo cmake make g++-15 clang-format clangd-20
 
 # Install additional tools and libraries
-RUN apt install -y net-tools libasio-dev libboost-all-dev libgtest-dev netcat-traditional wget
+RUN apt-get install -y net-tools libasio-dev libboost-all-dev libgtest-dev netcat-traditional wget
 
 # Cleanup
-RUN apt autoremove -y \
-    && apt autoclean \
-    && rm -rf /var/lib/apt/lists/* \
+RUN apt-get autoremove -y \
+    && apt-get autoclean \
+    && rm -rf /var/lib/apt-get/lists/* \
     && rm -rf /var/cache/apt/* \
     && rm -rf /tmp/*
 
