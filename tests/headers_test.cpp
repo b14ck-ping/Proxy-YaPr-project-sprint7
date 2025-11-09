@@ -1,7 +1,7 @@
 #include "headers.h"
 #include <gtest/gtest.h>
 
-// ---------- Helper ----------
+// Helper
 static std::vector<std::pair<std::string, std::string>> collectHeaders(std::string_view s) {
     std::vector<std::pair<std::string, std::string>> out;
     iterHeaders(s, [&](std::string_view name, std::string_view value) {
